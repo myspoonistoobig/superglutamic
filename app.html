@@ -79,18 +79,6 @@
 
 			// This function is the weakest link...will need refactored at some point probably
 			function generateCommands() {
-				/*var croppyo = document.querySelector("#crop");
-				interact(croppyo).resizable({
-					modifiers: [
-						interact.modifiers.aspectRatio({
-    						ratio: 'preserve',
-    						enabled: true
-    					})
-    				]
-				});*/
-
-				/*interact(document.querySelector("#crop")).resizable({ modifiers: [interact.modifiers.aspectRatio({ ratio: 'preserve', enabled: true }) ] });*/
-
 				try {
 					var cropEl = document.getElementById("crop");
 
@@ -176,7 +164,6 @@
 
 						blurFilterString += 'crop=' + scaledWidth.toString() + ':' + scaledHeight.toString() + ':' + scaledX.toString() + ':' + scaledY.toString() + '[v]';
 					}
-					//blurFilterString += '[v' + (blurBoxes.length - 1).toString() + ']crop=' + scaledWidth.toString() + ':' + scaledHeight.toString() + ':' + scaledX.toString() + ':' + scaledY.toString() + '[v]';
 
 					if (blurBoxes.length > 0 || cropEl) {
 						blurFilterString += '" -map "[v]"';
@@ -187,8 +174,7 @@
 					// Present command to the user
 					document.getElementById("sf-n").innerHTML = ffmpegCmd;
 				} catch(e) {
-					//console.log('WHIFF!');
-					//console.log(e);
+
 				}
 			}
 
