@@ -4,6 +4,32 @@
 		<title>superglutamic</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<style>
+			*, *:before, *:after { box-sizing: border-box; }
+			html, body { padding: 0; margin: 0; background: #181818; color: #b3b3b3; font-family: Arial, sans-serif; }
+			body { padding: 1rem; }
+			input[type="file"] { padding: 2rem; border: 1px dashed #404040; background: #282828; display: block; width: 100%; text-align: center; }
+			#video-workspace { display: grid; grid-template-columns: 3.125rem 1fr; grid-gap: 0rem; margin-top: 1rem; }
+			#video-stage { position: relative; /*border: 1px solid #404040;*/ }
+			#video-stage::after { display: block; position: absolute; z-index: 1; width: 100%; height: 100%; content: " "; background: rgba(24, 24, 24, 0.95); top: 0; left: 0; }
+			#video-stage.no-privacy::after { display: none; }
+			#video-canvas { display: block; max-width: 100%; width: 100%; height: auto; }
+			.ctrl { padding: 0; display: grid; grid-template-columns: 1fr; grid-gap: 0.125rem; align-content: start; }
+			.ctrl a { display: flex; height: 2.25rem; width: 2.25rem; border: 1px solid #000; border-radius: 4px; background: #b3b3b3; cursor: pointer; }
+			.ctrl a svg { fill: #000; height: 1.5rem; width:1.5rem; display: block; margin: auto; }
+			.otptclc > div { padding: .5rem; color: #b3b3b3; }
+			.otptclc { margin-top: 1rem; background: #282828; padding: 1rem; display: grid; grid-template-columns: 1fr; grid-gap: .5rem; border: 1px dashed #404040; border-radius: 6px; }
+			#crop { display: block; width: 15rem; height: 5rem; padding: 0px; margin: 0; background-color: rgba(255, 0, 0, 0.5); overflow: hidden; touch-action: none; border: 2px dashed red; position: absolute; top: 0; left: 0; user-select: none; z-index: 2; }
+			#crop .name { display: block; position: absolute; top: 8px; left: 8px; font-size: 14px; line-height: 14px; padding: 4px; background: #333; border: 1px solid #000; color: #fff; border-radius: 4px; }
+			.blurbox { display: block; width: 15rem; height: 5rem; padding: 0px; margin: 0; background-color: rgba(139, 195, 74, 0.5); overflow: hidden; touch-action: none; border: 2px dashed #8bc34a; position: absolute; top: 0; left: 0; user-select: none; z-index: 2; }
+			.blurbox .name { display: block; position: absolute; top: 8px; left: 8px; font-size: 14px; line-height: 14px; padding: 4px; background: #333; border: 1px solid #000; color: #fff; border-radius: 4px 0px 0px 4px; border-right: 1px solid #888; }
+			.blurbox .editable { resize: none; border: 1px solid #000; background: #333; color: #fff; font-size: 14px; line-height: 14px; padding: 4px; height: 24px; width: 26px; top: 8px; position: absolute; left: 42px; border-radius: 0px 4px 4px 0px; margin: 0; font-family: Arial, sans-serif; border-left: 1px solid #888; }
+			h2 { color: #4CAF50; font-size: 1.25rem; line-height: 1.25rem; padding: 0; margin: 0 0 .25rem 0; }
+			div + h2 { margin-top: 2rem; }
+			.deletable { cursor: default; display: block; position: absolute; top: 8px; right: 8px; height: 24px; width: 24px; background: #333; border: 1px solid #000; border-radius: 4px; }
+			.deletable * { pointer-events: none; }
+			.deletable svg { height: 100%; width: 100%; display: block; }
+			.del-svg-container { display: block; max-height: 16px; max-width: 15px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); fill: #fff; }
+			.dimensional { display: block; color: #fff; position: absolute; top: 8px; padding: 4px; background: #333; font-size: 14px; line-height: 14px; border: 1px solid #000; border-radius: 4px; right: 36px; }
 		</style>
 		</script>
 	</head>
